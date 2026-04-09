@@ -1,5 +1,5 @@
 # 🛡️ Día 2: Port Sentinel Auditor
-> **Reto 100 Días, 100 Apps de Ciberseguridad** > ![Progreso](https://img.shields.io/badge/Progreso-2%2F100-brightgreen) ![Python](https://img.shields.io/badge/Python-3.12-blue) ![Licencia](https://img.shields.io/badge/Licencia-MIT-yellow)
+>  ![Python](https://img.shields.io/badge/Python-3.12-blue) ![Licencia](https://img.shields.io/badge/Licencia-MIT-yellow)
 
 > [!IMPORTANT]
 > **⚠️ AVISO LEGAL Y ÉTICO / LEGAL & ETHICAL DISCLAIMER**
