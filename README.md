@@ -1,52 +1,45 @@
+
+⚠️ AVISO LEGAL Y ÉTICO / LEGAL & ETHICAL DISCLAIMER
+[!IMPORTANT]
+
+ES: No usar contra sistemas de terceros. Este software ha sido creado exclusivamente con fines educativos y para su uso en entornos de auditoría autorizados. El uso de esta herramienta contra objetivos sin consentimiento previo es ilegal.
+
+EN: Do not use against third-party systems. This software is created for educational purposes and authorized auditing environments only. Using this tool against targets without prior consent is illegal.
 # 🛡️ Día 2: Port Sentinel Auditor
-> **Reto 100 Días, 100 Apps de Ciberseguridad** > ![Progreso](https://img.shields.io/badge/Progreso-2%2F100-brightgreen) ![Python](https://img.shields.io/badge/Python-3.12-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-**Port Sentinel Auditor** es una herramienta de reconocimiento táctico (*Footprinting*) diseñada para mapear la superficie de exposición de un objetivo. A diferencia de un escáner genérico, esta aplicación clasifica la criticidad del hallazgo basándose en el alcance de la red e implementa una estrategia de **Dual Logging** para auditorías profesionales.
+ ![Progress badge showing 2 out of 100 completed, colored in bright green, part of the 100 Days 100 Cybersecurity Apps challenge] ![Python version 3.12 badge in blue] ![MIT License badge in yellow]
+📖 Descripción
+Port Sentinel Auditor es una herramienta de reconocimiento táctico (Footprinting) diseñada para mapear la superficie de exposición de un objetivo. Clasifica la criticidad del hallazgo según el alcance de red (LOOPBACK, LAN, WAN) e implementa un sistema de Dual Logging para reportes profesionales.
 
----
+🚀 Funcionalidades Principales
+Dual Logging System: Reporte visual en GUI y log técnico detallado en .txt.
 
-## 🚀 Funcionalidades Principales
+Network Scope Intelligence: Identificación automática del tipo de red del objetivo.
 
-* **Dual Logging System (Modo Híbrido):** * **GUI (Reporte Ejecutivo):** Muestra en pantalla únicamente los puertos **abiertos** con su respectivo alcance para una lectura rápida y limpia.
-    * **TXT (Log Forense):** Guarda automáticamente en la carpeta de **Descargas** un registro técnico completo (Verbose) que incluye tanto puertos abiertos como cerrados/timeouts.
-* **Inteligencia de Alcance (Network Scope):** Identifica automáticamente si el objetivo es `LOOPBACK` (interno), `LAN` (red local privada) o `WAN` (público en Internet), permitiendo priorizar la respuesta ante incidentes.
-* **Banner Grabbing Activo:** Ejecuta peticiones de bajo nivel para capturar las firmas de los servicios y ayudar en la identificación de versiones de software.
-* **Arquitectura Non-Blocking:** Implementación de hilos (`threading`) para asegurar que la interfaz de usuario se mantenga fluida durante escaneos de alta latencia.
+Banner Grabbing: Captura de firmas de servicios para identificación de versiones.
 
----
+Non-Blocking UI: Escaneo fluido gracias a una arquitectura basada en threading.
 
-## 🔬 Concepto Clave: El TCP Three-Way Handshake
+🔬 Uso Responsable (Guidelines)
+Para mantener un entorno de pruebas seguro y ético, se recomienda:
 
-Para determinar si un puerto está abierto, esta herramienta utiliza el método `socket.connect_ex()`, el cual intenta completar un **saludo de tres vías** de la pila TCP/IP:
+Entornos Controlados: Probar preferentemente en localhost o máquinas virtuales (VirtualBox/VMware).
 
+Permiso Explícito: Solo auditar redes externas si se cuenta con una autorización escrita (Contrato de Pentesting).
 
+Ejemplo Seguro: Usar scanme.nmap.org para pruebas de conectividad permitidas por la comunidad.
 
-1.  **SYN:** El cliente (tu script) envía un paquete de sincronización al puerto objetivo.
-2.  **SYN/ACK:** Si el puerto está **abierto**, el servidor responde confirmando la recepción. Si está **cerrado**, responde con un paquete `RST` (Reset).
-3.  **ACK:** El cliente confirma la recepción del servidor y la conexión queda establecida.
+🛠️ Instalación y Uso
+Clonar/Descargar: port_sentinel.py
 
-> **Nota Técnica:** Este método se conoce como **"Full Connect Scan"**. Es extremadamente fiable para confirmar la disponibilidad de un servicio, aunque es más detectable por sistemas de monitoreo (IDS) que un escaneo de tipo "Stealth" (SYN Scan) debido a que completa la sesión TCP.
+Ejecutar:
 
----
+Bash
+python port_sentinel.py
+⚖️ Licencia (License)
+Este proyecto está bajo la Licencia MIT con una Cláusula de Uso Ético.
 
-## 🛠️ Cómo Ejecutar
+MIT + Ethical Use Clause:
+Se otorga permiso para usar, copiar y modificar este software de forma gratuita, siempre que se incluya el aviso de copyright original.
 
-### Requisitos Previos
-* Tener instalado **Python 3.10** o superior.
-* No requiere la instalación de librerías externas (usa módulos nativos: `socket`, `threading`, `tkinter`, `ipaddress`).
-
-### Pasos para iniciar
-1.  **Descargar el código:** Guarda el archivo como `port_sentinel.py`.
-2.  **Abrir la Terminal:** Dirígete a la carpeta donde guardaste el archivo.
-3.  **Ejecutar la App:**
-    ```bash
-    python port_sentinel.py
-    ```
-4.  **Uso:** * Introduce la IP o dominio a auditar (ej: `127.0.0.1` o `google.com`).
-    * Haz clic en **"INICIAR AUDITORÍA"**.
-    * Al finalizar, el sistema te avisará que el log completo ha sido generado en tu carpeta de **Descargas**.
-
----
-
-## ⚖️ Descargo de Responsabilidad (Disclaimer)
-Esta herramienta fue creada con fines educativos y de auditoría ética. El escaneo de redes sin autorización previa es ilegal. El autor no se hace responsable del uso indebido de este software.
+Restricción Adicional: Este software no debe ser utilizado con fines maliciosos, actividades ilegales o para causar daño a la integridad y privacidad de terceros. El autor se deslinda de cualquier responsabilidad por el mal uso de esta herramienta.
